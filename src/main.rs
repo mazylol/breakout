@@ -89,8 +89,8 @@ impl Block {
     pub fn draw(&self) {
         let color = match self.block_type {
             BlockType::Regular => match self.lives {
-                2 => RED,
-                _ => ORANGE,
+                2 => ORANGE,
+                _ => RED,
             },
             BlockType::SpawnBallOnDeath => GREEN,
         };
@@ -291,7 +291,7 @@ async fn main() {
                 draw_title_text("Press SPACE to start", font);
             }
             GameState::Game => {
-                let score_text = format!("score: {}", score);
+                let score_text = format!("Score: {}", score);
                 let score_text_dim = measure_text(&score_text, Some(font), 30u16, 1.0);
                 draw_text_ex(
                     &score_text,
@@ -306,7 +306,7 @@ async fn main() {
                 );
 
                 draw_text_ex(
-                    &format!("lives: {}", player_lives),
+                    &format!("Lives: {}", player_lives),
                     30.0,
                     40.0,
                     TextParams {
@@ -318,10 +318,10 @@ async fn main() {
                 );
             }
             GameState::LevelCompleted => {
-                draw_title_text(&format!("you win! {} score", score), font);
+                draw_title_text(&format!("You Win! Score: {}", score), font);
             }
             GameState::Dead => {
-                draw_title_text(&format!("you DIED! {} score", score), font);
+                draw_title_text(&format!("You DIED! Score: {}", score), font);
             }
         }
 

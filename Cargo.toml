@@ -11,3 +11,4 @@ opt-level = 3
 
 [dependencies]
 macroquad = "0.3.25"
+macroquad-text = "0.1.1"

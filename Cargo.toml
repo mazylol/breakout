@@ -3,10 +3,8 @@ name = "breakout"
 version = "0.1.0"
 edition = "2021"
 license-file = "LICENSE"
-name = "rit-mazy"
 readme = "README.md"
 repository = "https://github.com/mazylol/breakout"
-version = "0.1.0"
 
 [profile.dev]
 opt-level = 1

@@ -125,7 +125,7 @@ impl Ball {
     }
 
     pub fn draw(&self) {
-        draw_rectangle(self.rect.x, self.rect.y, self.rect.w, self.rect.h, DARKGRAY);
+        draw_rectangle(self.rect.x, self.rect.y, self.rect.w, self.rect.h, BLACK);
     }
 }
 // aabb collision with positional correction
@@ -277,7 +277,7 @@ async fn main() {
             }
         }
 
-        clear_background(WHITE);
+        clear_background(DARKGRAY);
         player.draw();
         for block in blocks.iter() {
             block.draw();

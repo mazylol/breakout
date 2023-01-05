@@ -4,7 +4,7 @@ const BLOCK_SIZE: Vec2 = Vec2::from_array([100f32, 40f32]);
 const PLAYER_SIZE: Vec2 = Vec2::from_array([150f32, 40f32]);
 const PLAYER_SPEED: f32 = 700f32;
 const BALL_SIZE: f32 = 50f32;
-const BALL_SPEED: f32 = 400f32;
+const BALL_SPEED: f32 = 350f32;
 
 pub fn draw_title_text(text: &str, font: Font) {
     let dims = measure_text(text, Some(font), 50u16, 1.0f32);
@@ -189,7 +189,7 @@ fn init_blocks(blocks: &mut Vec<Block>) {
             BlockType::Regular,
         ));
     }
-    for _ in 0..3 {
+    for _ in 0..10 {
         let rand_index = rand::gen_range(0, blocks.len());
         blocks[rand_index].block_type = BlockType::SpawnBallOnDeath;
     }
@@ -234,7 +234,6 @@ async fn main() {
                             if block.lives <= 0 {
                                 score += 10;
                                 if block.block_type == BlockType::SpawnBallOnDeath {
-                                    // spawn a ball
                                     spawn_later.push(Ball::new(ball.rect.point()));
                                 }
                             }
